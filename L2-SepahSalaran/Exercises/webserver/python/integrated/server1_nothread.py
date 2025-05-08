@@ -1,5 +1,4 @@
 import socket
-import threading
 import os
 
 HOST = '127.0.0.1'
@@ -39,7 +38,6 @@ def handle_client(client_socket, client_address):
 
         method, requested_path, _ = request_parts
         
-        # Handle your custom endpoints
         if method == 'GET' and requested_path == '/hello':
             response = "HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nHello, World!"
             client_socket.send(response.encode('utf-8'))
@@ -47,7 +45,6 @@ def handle_client(client_socket, client_address):
             headers, body = request.split('\r\n\r\n', 1)
             response = f"HTTP/1.1 200 OK\r\nContent-Type: text/plain\r\n\r\nReceived: {body}"
             client_socket.send(response.encode('utf-8'))
-        # Handle file serving
         else:
             if requested_path == '/':
                 requested_path = '/index.html'
@@ -82,11 +79,7 @@ def start_server():
     try:
         while True:
             client_socket, client_address = server_socket.accept()
-            client_thread = threading.Thread(
-                target=handle_client,
-                args=(client_socket, client_address)
-            )
-            client_thread.start()
+            handle_client(client_socket, client_address)
     
     except KeyboardInterrupt:
         print("\nShutting down server...")
