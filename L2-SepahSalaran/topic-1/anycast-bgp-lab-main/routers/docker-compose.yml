@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  router1:
+    image: frrouting/frr:latest
+    container_name: router1
+    volumes:
+      - ./router1/frr.conf:/etc/frr/frr.conf
+      - ./router1/daemons:/etc/frr/daemons
+      - ./router1/vtysh.conf:/etc/frr/vtysh.conf
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    networks:
+      web_net:
+        ipv4_address: 192.168.10.4
+    command: ["/usr/lib/frr/docker-start"]
+
+  router2:
+    image: frrouting/frr:latest
+    container_name: router2
+    volumes:
+      - ./router2/frr.conf:/etc/frr/frr.conf
+      - ./router2/daemons:/etc/frr/daemons
+      - ./router2/vtysh.conf:/etc/frr/vtysh.conf
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    networks:
+      web_net:
+        ipv4_address: 192.168.10.5
+    command: ["/usr/lib/frr/docker-start"]
+
+networks:
+  web_net:
+    external:
+      name: nginx_web_net

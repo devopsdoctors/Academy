@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  client:
+    image: alpine:latest
+    container_name: client
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    networks:
+      web_net:
+        ipv4_address: 192.168.10.10
+    command: ["/bin/sh", "-c", "apk add curl && while true; do echo 'Requesting http://192.168.10.100'; curl -s http://192.168.10.100 || echo '❌ Failed to connect'; sleep 3; done"]
+
+networks:
+  web_net:
+    external:
+      name: nginx_web_net   
