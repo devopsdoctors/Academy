@@ -33,6 +33,7 @@ def handle_client(client_socket, client_address):
             return
 
         request_lines = request.split('\n')
+        # request_lines[0]  example :  GET /hello HTTP/1.1
         request_parts = request_lines[0].split()
         if len(request_parts) < 2:
             return
@@ -70,7 +71,12 @@ def handle_client(client_socket, client_address):
         client_socket.close()
 
 def start_server():
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    
+
+    server_socket = socket.socket(family= socket.AF_INET,type= socket.SOCK_STREAM)
+    # family : socket.AF_INET or socket.AF_INET6 or AF_UNIX
+    # type : socket.SOCK_STREAM or socket.SOCK_DGRAM
+
     server_socket.bind((HOST, PORT))
     server_socket.listen(5)
     
@@ -93,3 +99,4 @@ def start_server():
 
 if __name__ == "__main__":
     start_server()
+
