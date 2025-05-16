@@ -20,8 +20,8 @@ def stress_test(server_port, num_requests=50):
     start_time = time.time()
     
     # Test all endpoints for both servers
-    paths = ["/", "/hello", "/post"]
-    methods = ["GET", "GET", "POST"]
+    paths = ["/hello",]
+    methods = ["GET",]
     
     for i in range(num_requests):
         path = paths[i % len(paths)]
@@ -37,13 +37,23 @@ def stress_test(server_port, num_requests=50):
     return f"Completed {num_requests} requests to port {server_port} in {time.time() - start_time:.7f} seconds"
 
 if __name__ == "__main__":
-    print("Testing Threaded Server (port 8081)")
-    result1=stress_test(8081, num_requests=50)
-    print("\nTesting Non-Threaded Server (port 8082)")
-    result2=stress_test(8082, num_requests=50)
-
-    print("Testing 1 No Threaded Server (port 8082)")
+    print("Testing no thread Server (port 8081)")
+    result1=stress_test(8081, num_requests=1000)
+    print("\nTesting with thread Server (port 8082)")
+    result2=stress_test(8082, num_requests=1000)
+    print("TTesting with asyncio  (port 8083)")
+    result22 = stress_test(8083, num_requests=1000)
+    print("Testing Go Server (port 8086)")
+    result3 = stress_test(8086, num_requests=1000)
+    print(result3)
+    print(100*'*')
+    print("No Threaded Server (port 8081)")
     print(result1)
-    print("Testing result for with Thread Server (port 8081)")
+    print("With Thread Server (port 8082)")
     print(result2)
+    print("With asyncio Server (port 8083)")
+    print(result22)
+
+    print("Testing result for with Go Server (port 8086)")
+    print(result3)
     

@@ -73,7 +73,7 @@ def start_server():
     server_socket.bind((HOST, PORT))
     server_socket.listen(5)
     
-    print(f"Server running on http://{HOST}:{PORT}")
+    print(f"🚀 No thred Server running on http://{HOST}:{PORT}")
     print("Press Ctrl+C to stop the server")
     
     try:
