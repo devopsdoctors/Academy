@@ -1,0 +1,19 @@
+(
+  echo "===== Testing Python No Thread (8081) =====";
+  wrk -t6 -c100 -d10s http://127.0.0.1:8081/hello
+) &
+
+(
+  echo "===== Testing Python Threading (8082) =====";
+  wrk -t6 -c100 -d10s http://127.0.0.1:8082/hello
+) &
+
+(
+  echo "===== Testing Python Asyncio (8083) =====";
+  wrk -t6 -c100 -d10s http://127.0.0.1:8083/hello
+) &
+
+(
+  echo "===== Testing Go Server (8086) =====";
+  wrk -t6 -c100 -d10s http://127.0.0.1:8086/hello
+) &
