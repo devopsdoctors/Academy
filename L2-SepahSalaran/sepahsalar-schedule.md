@@ -5,7 +5,7 @@ Below is the schedule for the first two weeks of the Sepahsalar group course.
 
 ---
 
-## 🌐 Week 1: Core Networking Concepts & Web Architecture
+## 🌐 Module 1: Core Networking Concepts & Web Architecture
 ### **Course Topics**
 1. **Introduction to Web Servers, Load Balancers, and API Gateways**
    - Why we need web servers
@@ -40,29 +40,37 @@ Below is the schedule for the first two weeks of the Sepahsalar group course.
 9. Site-to-Site VPN and IPsec
 
 ---
-
-## 🖥️ Week 2: Virtualization & Containers
+## 🖥️ Module 2: Virtualization & Containers
 ### **Course Topics**
-1. **Introduction to Virtualization**
-   - What is virtualization, KVM, and MicroVM
 
-2. **Containers**
+1. **Introduction to Virtualization**
+   - What is virtualization
+   - KVM and MicroVM
+
+2. **Introduction to Containers**
    - What are containers
    - Namespaces and cgroups (v1 vs v2)
    - Container internals
-   - Docker images and layering
+
+3. **Hands-On: Creating Containers with Linux**
+   - Using `unshare` and Linux namespaces
+   - Basic container shell without Docker
+
+4. **Docker Concepts**
    - Docker overview
+   - Docker images and layering
    - Container runtimes (runc, containerd, etc.)
    - Docker container lifecycle
+   - Docker storage types
+   - Docker networking types
 
 ### **Training & Hands-on**
-1. Docker networking and its types
-2. Docker storage deep dive
-3. What is Copy-On-Write (COW) in Docker storage
-4. Create a Docker container manually (without Docker CLI)
-5. Manually connect two containers running in different VMs
-6. Share namespaces between containers and understand how it works
-7. Container security best practices (image signing, user management, seccomp, etc.)
+1. What is Copy-On-Write (COW) in Docker storage
+2. Create a Docker container manually (without Docker CLI)
+3. Manually connect two containers running in different VMs
+4. Share namespaces between containers and understand how it works
+5. Container security best practices (image signing, user management, seccomp, etc.)
+6. Dockerfile and Docker-compose best practices
 
 ---
 
