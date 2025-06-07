@@ -74,4 +74,45 @@ Below is the schedule for the first two weeks of the Sepahsalar group course.
 
 ---
 
+## ☸️ Module 3: Kubernetes Deep Dive
+### **Course Topics**
+
+1. **Kubernetes Architecture**
+   - Components of the control plane and node
+   - etcd, API server, controller manager, scheduler, kubelet, kube-proxy
+
+2. **Workload Management**
+   - Pods, ReplicaSets, Deployments
+   - StatefulSets vs Deployments
+   - DaemonSets
+   - Jobs and CronJobs
+
+3. **Kubernetes Networking**
+   - Services: ClusterIP, NodePort, LoadBalancer, ExternalName
+   - Ingress and Ingress Controllers
+   - CNI plugins and K8s networking model
+
+
+4. **Storage**
+   - PersistentVolumes (PV) and PersistentVolumeClaims (PVC)
+   - StorageClasses and dynamic provisioning
+
+5. **Security**
+   - RBAC (Role-Based Access Control)
+   - Network Policies
+   - Secrets and ConfigMaps
+
+6. **Packaging and Deployment**
+   - Helm and Helm Charts
+   - GitOps basics and tools (ArgoCD, Flux)
+
+### **Training & Hands-on**
+1. Deploy k8s cluster
+2. Deploy wordpress on Kubernetes
+3. different rollout strategy on Kubernetes
+4. cilium CNI 
+4. Calico CNI
+
+---
+
 Good luck and get ready for an exciting and educational journey! 🚀
